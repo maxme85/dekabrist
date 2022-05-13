@@ -1,0 +1,593 @@
+$accent1: #B000FF;
+$accent2: #00c2d8;
+$columns: 12;
+$body_font_family: "Montserrat";
+$input_n_btn_height: 50px;
+$border_radius: 3px;
+$form_border_radius: 3px;
+$close_styles: (#8b8b8b, //stroke color
+	4, //stroke width
+	30px);
+
+// breackpoints
+$bp_sm: 320px;
+$container_sm: calc(220px + 30vw); //or 100%
+
+$bp_md: 768px;
+$container_md: 600px; //or 100%
+
+$bp_lg: 1170px;
+$container_lg: 1120px; //or 100%
+
+$bp_xl: 1600px;
+$container_xl: 1400px; //or 100%
+
+
+
+
+@mixin animate($sec) {
+	-webkit-transition: all $sec+s cubic-bezier(0.76, 0, 0.24, 1);
+	-moz-transition: all $sec+s cubic-bezier(0.76, 0, 0.24, 1);
+	-o-transition: all $sec+s cubic-bezier(0.76, 0, 0.24, 1);
+	transition: all $sec+s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+//@include animate(.3);
+
+@mixin background_gradient($start, $end) {
+	//only hex
+
+	background: $start;
+	background: -moz-linear-gradient(left, $start 0%, $end 100%);
+	background: -webkit-linear-gradient(left, $start 0%, $end 100%);
+	background: linear-gradient(to right, $start 0%, $end 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$end', GradientType=1);
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	@each $property in $properties {
+		#{$property}: $min-value;
+	}
+
+	@media (min-width: $min-vw) {
+		@each $property in $properties {
+			#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+		}
+	}
+
+	@media (min-width: $max-vw) {
+		@each $property in $properties {
+			#{$property}: $max-value;
+		}
+	}
+}
+
+@function strip-unit($number) {
+	@if type-of($number)=="number"and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+.design{
+	display: none;
+	.d1,.d2,.d3,.d4{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		img{
+			width: 320px;
+			transform: translateX(1px) translateY(-1px);
+		}
+	}
+}
+
+.accent_text {
+	color: $accent1;
+}
+
+button{
+	cursor: pointer;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: $body_font_family;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 15px, 15px);
+}
+
+.container {
+	width: $container_sm;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.btn {
+	display: flex;
+	height: $input_n_btn_height;
+	line-height: $input_n_btn_height;
+	background: $accent1;
+	width: fit-content;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: white;
+	border:none;
+	padding: 0 20px;
+	font-size: 15px;
+	font-family: $body_font_family;
+	border-radius: $border_radius;
+	@include animate(.3);
+
+	&.accent2 {
+		background: $accent2;
+
+		&:hover {
+			background: darken($accent2, 10%);
+			@include animate(.3);
+		}
+	}
+
+	&:hover {
+		background: darken($accent1, 10%);
+		@include animate(.3);
+	}
+
+	&:disabled{
+		background: gray;
+	}
+}
+
+textarea{
+	height: $input_n_btn_height;
+		line-height: $input_n_btn_height;
+		border: 2px solid #dadada;
+		border-radius: $border_radius;
+		font-family: $body_font_family;
+		display: flex;
+		width: 100%;
+		font-size: 14px;
+		margin: 15px 0;
+		padding: 0 15px;
+		-webkit-appearance: none;
+		min-height: 140px;
+		outline: none;
+}
+
+input {
+
+	&[type=text],
+	&[type=tel],
+	&[type=email] {
+		height: $input_n_btn_height;
+		line-height: $input_n_btn_height;
+		border: 2px solid #dadada;
+		border-radius: $border_radius;
+		font-family: $body_font_family;
+		display: flex;
+		width: 100%;
+		font-size: 14px;
+		margin: 15px 0;
+		padding: 0 15px;
+		-webkit-appearance: none;
+		outline: none;
+
+		// box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+		// 0 2px 4px rgba(0,0,0,0.07), 
+		// 0 4px 8px rgba(0,0,0,0.07), 
+		// 0 8px 16px rgba(0,0,0,0.07),
+		// 0 16px 32px rgba(0,0,0,0.07), 
+		// 0 32px 64px rgba(0,0,0,0.07);
+
+		@include animate(.3);
+
+		&:focus {
+			box-shadow: 0 0 15px rgba($color: $accent1, $alpha: .3);
+			@include animate(.3);
+		}
+	}
+
+	&[type=submit] {
+		border: none;
+		background: $accent1;
+		color: white;
+		text-align: center;
+		justify-content: center;
+		-webkit-appearance: none;
+		font-size: 15px;
+		font-family: $body_font_family;
+		@include animate(.3);
+
+		&:hover {
+			background: darken($accent1, 10%);
+			cursor: pointer;
+			@include animate(.3);
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 15px rgba($color: $accent1, $alpha: .8);
+		}
+	}
+}
+.cta_mx{
+	
+	.form_wrapper{
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateX(-100%);
+		background: rgba($color: #000000, $alpha: 0.4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		z-index: 1;
+		backdrop-filter: blur(10px);
+		@include animate(.6);
+		overflow: hidden;
+		.form{
+			transform: translateX(100%) scale(3.7);
+			background: white;
+			border-radius: $form_border_radius;
+			margin: 20px;
+			width: 300px;
+			max-height: 100%;
+			overflow-y: visible;
+			padding: 20px;
+			position: relative;
+			
+			
+			@include animate(.6);
+			.close{
+				border:none;
+				background: url(../img/close.svg) no-repeat center;
+				position: absolute;
+				right: 20px;
+				width: 20px;
+				height: 20px;
+				top: 20px;
+				font-size: 0;
+				background-size: contain;
+			}
+			.h1{
+				margin: 0;
+				margin-bottom: 10px;
+				font-weight: bold;
+				padding-right: 30px;
+				font-size: 24px;
+			}
+		}
+		&.on{
+			transform: translateX(0%);
+			opacity: 1;
+			.form{
+				transform: translateX(0%) scale(1);
+				
+			}
+		}
+	}
+
+	.input_wrapper{
+		position: relative;
+		&.required{
+			&:before{
+				content: "";
+				position: absolute;
+				right: 15px;
+				top:50%;
+				width: 5px;
+				height: 5px;
+				transform: translate(-50%,-50%);
+				border-radius: 100%;
+				background:  $accent1;
+			}
+		}
+	}
+
+	.responce{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background: rgba($color: #000000, $alpha: 0.9);
+		left: 0;
+		top: 0;
+		display: flex;
+		align-items: center;justify-content: center;
+		transform: translateX(-100vw);
+		opacity: 0;
+		z-index: 1;
+		@include animate(.6);
+		&.on{
+			transform: translateX(0vw);
+			opacity: 1;
+		}
+		.innerWrapper{
+			background:white;
+			position: relative;
+			border-radius: $form_border_radius;
+			padding: 30px 20px 20px;
+			.close{
+				background: url(../img/close.svg) no-repeat center;
+				background-size: contain;
+				border:none;
+				font-size: 0;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+
+		}
+	}
+}
+.mxform{
+	width: 100%;
+	.input_wrapper{
+		position: relative;
+		&.required{
+			&:before{
+				content: "";
+				position: absolute;
+				right: 15px;
+				top:50%;
+				width: 5px;
+				height: 5px;
+				transform: translate(-50%,-50%);
+				border-radius: 100%;
+				background:  $accent1;
+			}
+		}
+	}
+
+	.responce{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background: rgba($color: #000000, $alpha: 0.9);
+		left: 0;
+		top: 0;
+		display: flex;
+		align-items: center;justify-content: center;
+		transform: translateX(-100vw);
+		opacity: 0;
+		z-index: 1;
+		@include animate(.6);
+		&.on{
+			opacity: 1;
+			transform: translateX(0vw);
+		}
+		.innerWrapper{
+			background:white;
+			position: relative;
+			border-radius: $form_border_radius;
+			padding: 30px 20px 20px;
+			width: 300px;
+			.close{
+				background: url(../img/close.svg) no-repeat center;
+				background-size: contain;
+				border:none;
+				font-size: 0;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+
+		}
+	}
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+[class*="col-"] {
+	width: 100%;
+}
+
+p {
+	margin: 0;
+	margin-bottom: 20px;
+	line-height: 24px;
+}
+
+h1,
+.h1 {
+	margin: 20px 0 10px 0;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 24px, 36px);
+	width: 100%;
+}
+
+h2,
+.h2 {
+	font-size: 1.5em;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 20px, 30px);
+	width: 100%;
+}
+
+h3,
+.h3 {
+	font-size: 1.17em;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 15px, 26px);
+	width: 100%;
+}
+
+h4,
+.h4 {
+	font-size: 1.12em;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 14px, 24px);
+	width: 100%;
+}
+
+h5,
+.h5 {
+	font-size: .83em;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 12px, 20px);
+	width: 100%;
+}
+
+h6,
+.h6 {
+	font-size: .75em;
+	@include fluid-type(font-size, $bp_sm, $bp_lg, 11px, 18px);
+	width: 100%;
+}
+
+
+.my-slider-wrapper{
+    width: 100%;
+    display: block;
+}
+
+.img_wrapper {
+	width: 100%;
+	height: 100%;
+	flex-shrink: 0;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	&.fixed_height {
+		height: 200px;
+		overflow: hidden;
+		position: relative;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+}
+
+#app{
+	overflow: hidden;
+}
+
+@media (min-width: $bp_md) {
+	.design{
+		display: block;
+	}
+	@for $i from 1 through $columns {
+		.col-#{$i} {
+			width:#{$i/$columns*100%};
+		}
+
+		.col-offset-#{$i} {
+			margin-left: #{$i/$columns*100%};
+		}
+	}
+
+	.col {
+		width: #{1/$columns*100%};
+		flex-basis: 0;
+		flex-grow: 1;
+	}
+
+	.container {
+		width: $container_md;
+	}
+
+	.btn {
+		width: auto;
+		padding: 0 40px;
+	}
+
+	.popup_wrapper {
+		.popup {
+			width: 400px;
+			height: auto;
+			position: relative;
+			overflow: visible;
+
+			.close {
+				right: -50px;
+				top: 0;
+
+				svg {
+					path {
+						stroke: white;
+					}
+				}
+			}
+		}
+	}
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+
+	.cta_mx{
+		.form_wrapper{
+			.form{
+				width: 350px;
+				padding: 30px;
+				overflow: visible;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp_lg) {
+	.container {
+		width: $container_lg;
+	}
+
+}
+
+@media (min-width: $bp_xl) {
+	.container {
+		width: $container_xl;
+	}
+
+}
