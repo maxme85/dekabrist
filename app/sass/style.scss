@@ -1,17 +1,187 @@
 @import 'vars';
 @import 'fonts';
- 
-header{
-    background-color: gray;
+
+.btn{
+    width: 100%;
 }
 
+header{
+    background-color: $black;
+    padding: 10px 0;
+    #burger{
+        &:checked{
+            &~.menu{
+                transform: translateX(0vw);
+            }
+        }
+    }
+    .burger{
+        margin-top: 8px;
+    }
+    .menu{
+        position: absolute;
+        transform: translateX(-100vw);
+        width: 100%;
+        height: 100%;
+        background: white;
+        left: 0;
+        top: 0;
+        padding: 60px 40px 40px 40px;
+        @include animate(.3);
+        ul{
+            li{
+                a{
+                    text-decoration: none;
+                    color: $black;
+                    font-family: 'Montserrat';
+                    padding: 10px 0;
+                    display: flex;
+                }
+                &:nth-child(5),&:nth-child(6){
+                    a{
+                        color: $accent1;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    .logo{
+        margin-right: 0;
+        margin-left: auto;
+    }
+}
 
+#hero{
+    background: url(../img/hero-img.jpg) no-repeat center;
+    background-size: cover;
+    h1{
+        margin: 0;
+        color: white;
+        margin: 50px 0;
+        text-align: center;
+        text-shadow: 1px 2px 5px rgba($color: #000000, $alpha: 0.3);
+        b{
+            color: $accent1;
+        }
+    }
+}
 
+section{
+    padding: 40px 0;
+}
+#banner_1{
+    background: $black;
+    ul{
+        li{
+            .big_text{
+                font-size: 47px;
+                font-weight: bold;
+                color: white;
+                text-transform: uppercase;
+                font-family: 'Montserrat';
+                text-align: center;
+            }
+            p{
+                color: white;
+                text-transform: uppercase;
+                font-family: 'Montserrat';
+                margin: 20px 0;
+            }
+        }
+    }
+}
 
+#subrent{
+    .ls{
+        .h1{
+            font-weight: bold;
+        }
+        .pretitle{
+            margin: 20px 0;
+        }
+    }
+    .rs{
 
+    }
+    .bs{
+        ul{
+            li{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                margin: 30px 0;
+                .num{
+                    background: $accent1;
+                    width: 100px;
+                    height: 100px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 50px;
+                    font-weight: bold;
+                    color: white;
+                    border-radius: 100%;
+                    margin-bottom: 10px;
+                }
+                p{
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
 
+#banner_2{
+    background: url(../img/dec-img-lounge.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 240px;
+}
 
-
+#calc{
+    .ls{
+        .h1{
+            font-weight: bold;
+        }
+        ul{
+            li{
+                position: relative;
+                padding-left: 20px;
+                margin: 20px 0;
+                &:before{
+                    content: "";
+                    position: absolute;
+                    left: 0%;
+                    top: 6px;
+                    width: 10px;
+                    height: 10px;
+                    background:  $accent1;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    .rs{
+        width: 100%;
+        ul{
+            li{
+                input{
+                    width: 100%;
+                }
+                .scaler{
+                    span{
+                        &.current{
+                            font-weight: bold;
+                            color: $accent1; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 

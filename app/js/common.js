@@ -37,9 +37,22 @@ var app = new Vue({
 		current_popup: 0,
 		popup_visible: false,
 		popup_current_message: '',
-		errors: -1
+		errors: -1,
+		calcs:[{
+			title:'Гостиницы и отели',
+			min: 1,
+			max: 50,
+			current: 1,
+			step: 1,
+			delta: 2.4,
+			sum: 0
+		}]
 	},
 	methods: {
+		step_changer(item){
+			console.log(item);
+			return Math.round(item.current*item.delta);
+		},
 		get_form_data(data) {
 			//send request
 			 postData('mail.php', {data})
@@ -50,6 +63,9 @@ var app = new Vue({
 			
 			console.log('popup_current_message: ',this.popup_current_message);
 		}
+	},
+	computed: {
+		
 	}
 });
 

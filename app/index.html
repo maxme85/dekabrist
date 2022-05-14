@@ -23,35 +23,163 @@
 				
 				<div class="logo"><img src="img/logo.svg" alt=""></div>
 			
-				<ul>
-					<li>
-						<a href="#">Smart технологии</a>
-					</li>
-					<li>
-						<a href="#">Финансовый план</a>
-					</li>
-					<li>
-						<a href="#">Компетенции компании</a>
-					</li>
-					<li>
-						<a href="#">Состав франшизы</a>
-					</li>
-					<li>
-						<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
-					</li>
-					<li>
-						<a href="mailto:a.taymanov@23hotels.ru">a.taymanov@23hotels.ru</a>
-					</li>
-				</ul>
+				<div class="menu">
+					<ul>
+						<li>
+							<a href="#">Smart технологии</a>
+						</li>
+						<li>
+							<a href="#">Финансовый план</a>
+						</li>
+						<li>
+							<a href="#">Компетенции компании</a>
+						</li>
+						<li>
+							<a href="#">Состав франшизы</a>
+						</li>
+						<li>
+							<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
+						</li>
+						<li>
+							<a href="mailto:a.taymanov@23hotels.ru">a.taymanov@23hotels.ru</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</header>
 
-		
+	<section id="hero">
+		<div class="container">
+			<div class="row">
+				<h1>ФРАНШИЗА ГОСТИНИЧНОЙ СЕТИ <b>DЕКАБРИСТ</b></h1>
+			</div>
+		</div>
+	</section>		
 
+	<section id="banner_1">
+		<div class="container">
+			<div class="row">
+				<ul>
+					<li>
+						<div class="big_text">с 0 до 100</div>
+					</li>
+					<li>
+						<p>
+							Развиваем сеть с нуля! <br>
+							Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов. Сеть приносит чистую прибыль свыше 700 000 руб/мес.
+						</p>
+					</li>
+					<li>
+						<popup
+								:status="popup_current_message"
+								v-on:form_data="get_form_data"
+								cta-name="Узнать условия вашего города"
+								title="Узнать условия вашего города"
+								pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+								:inputs = "[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''}
+									]"
+						></popup>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
 
+	<section id="subrent">
+		<div class="container">
+			<div class="row">
+				<div class="ls">
+					<div class="h1">СУБАРЕНДА – ЭТО БИЗНЕС, АКТУАЛЬНЫЙ ДЛЯ ЛЮБОГО ГОРОДА </div>
+					<div class="pretitle">Перед тем, как запустить франшизу, 12 лет занимались субарендой объектов в нескольких регионах РФ. 
+						Более 200 объектов в управление.  Спрос на аренду жилья есть в каждом городе и мы научим Вас зарабатывать на этом!
+						</div>
+				</div>
+				<div class="rs">
+					<div class="img_wrapper"><img src="img/subrent-img.jpg" alt=""></div>
+				</div>
+				<div class="bs">
+					<ul>
+						<li>
+							<div class="num">1</div>
+							<p>Гостиничные услуги востребованы в крупных и малых городах. </p>
+						</li>
 
+						<li>
+							<div class="num">2</div>
+							<p>Формат размещения гостей зависит от численности населения 
+								и интенсивности туристического/ рабочего трафика </p>
+						</li>
 
+						<li>
+							<div class="num">3</div>
+							<p>В крупных городах большую долю занимают отели и гостиницы. В малых городах апарт-гостиницы и посуточная аренда квартир выходят на первый план. 
+							</p>
+						</li>
+
+						<li>
+							<div class="num">4</div>
+							<p>Комбинация краткосрочной 
+								и долгосрочной аренды объектов обеспечивает 80% загрузку сети круглый год. </p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="banner_2"></section>
+
+	<section id="calc">
+		<div class="container">
+			<div class="row">
+				<div class="ls">
+					<div class="h1">СУТЬ БИЗНЕСА</div>
+					<ul>
+						<li>
+							Вы будете зарабатывать на сдаче в аренду апартаментов, квартир, отелей, гостиниц на срок от 3-х лет. 
+						</li>
+
+						<li>
+							Реновация объекта: косметический ремонт, меблировка, хоумстейджинг.
+						</li>
+
+						<li>
+							Пересдача в краткосрочную и долгосрочную субаренду частным лицам и корпоративным клиентам.
+						</li>
+					</ul>
+				</div>
+				<div class="rs">
+					<ul>
+						<li v-for="calc in calcs">
+							<div class="calc">
+								<div class="title">{{calc.title}}</div>
+								<div class="scaler">
+									<span :class="{current: calc.current == 1}">1</span>
+									<span :class="{current: calc.current == 3}">3</span>
+									<span :class="{current: calc.current == 10}">10</span>
+									<span :class="{current: calc.current == 20}">20</span>
+									<span :class="{current: calc.current == 30}">30</span>
+									<span :class="{current: calc.current == 50}">50</span>
+								</div>
+								<input type="range" 
+									:min="calc.min" 
+									:max="calc.max" 
+									v-model="calc.current" 
+									:step="calc.step"
+									v-on:change="step_changer(calc)"
+									>
+								<div>{{calc.current}}</div>
+								<div>{{step_changer(calc)}} ₽</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
