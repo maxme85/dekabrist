@@ -14,216 +14,354 @@
 
 <body>
 	<div id="app">
-	
-	<header>
-		<div class="container">
-			<div class="row">
-				<input type="checkbox" id="burger">
-				<label for="burger" class="burger"><span></span><span></span><span></span></label>
-				
-				<div class="logo"><img src="img/logo.svg" alt=""></div>
-			
-				<div class="menu">
+
+		<header>
+			<div class="container">
+				<div class="row">
+					<input type="checkbox" id="burger">
+					<label for="burger" class="burger"><span></span><span></span><span></span></label>
+
+					<div class="logo"><img src="img/logo.svg" alt=""></div>
+
+					<div class="menu">
+						<ul>
+							<li>
+								<a href="#">Smart технологии</a>
+							</li>
+							<li>
+								<a href="#">Финансовый план</a>
+							</li>
+							<li>
+								<a href="#">Компетенции компании</a>
+							</li>
+							<li>
+								<a href="#">Состав франшизы</a>
+							</li>
+							<li>
+								<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
+							</li>
+							<li>
+								<a href="mailto:a.taymanov@23hotels.ru">a.taymanov@23hotels.ru</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section id="hero">
+			<div class="container">
+				<div class="row">
+					<h1>ФРАНШИЗА ГОСТИНИЧНОЙ СЕТИ <b>DЕКАБРИСТ</b></h1>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_1">
+			<div class="container">
+				<div class="row">
 					<ul>
 						<li>
-							<a href="#">Smart технологии</a>
+							<div class="big_text">с 0 до 100</div>
 						</li>
 						<li>
-							<a href="#">Финансовый план</a>
-						</li>
-						<li>
-							<a href="#">Компетенции компании</a>
-						</li>
-						<li>
-							<a href="#">Состав франшизы</a>
-						</li>
-						<li>
-							<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
-						</li>
-						<li>
-							<a href="mailto:a.taymanov@23hotels.ru">a.taymanov@23hotels.ru</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<section id="hero">
-		<div class="container">
-			<div class="row">
-				<h1>ФРАНШИЗА ГОСТИНИЧНОЙ СЕТИ <b>DЕКАБРИСТ</b></h1>
-			</div>
-		</div>
-	</section>		
-
-	<section id="banner_1">
-		<div class="container">
-			<div class="row">
-				<ul>
-					<li>
-						<div class="big_text">с 0 до 100</div>
-					</li>
-					<li>
-						<p>
-							Развиваем сеть с нуля! <br>
-							Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов. Сеть приносит чистую прибыль свыше 700 000 руб/мес.
-						</p>
-					</li>
-					<li>
-						<popup
-								:status="popup_current_message"
-								v-on:form_data="get_form_data"
-								cta-name="Узнать условия вашего города"
-								title="Узнать условия вашего города"
-								pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-								:inputs = "[
-									{type:'text',caption:'Введите имя',  value:''},
-									{type:'tel',caption:'Номер телефона',required:true, value:''}
-									]"
-						></popup>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<section id="subrent">
-		<div class="container">
-			<div class="row">
-				<div class="ls">
-					<div class="h1">СУБАРЕНДА – ЭТО БИЗНЕС, АКТУАЛЬНЫЙ ДЛЯ ЛЮБОГО ГОРОДА </div>
-					<div class="pretitle">Перед тем, как запустить франшизу, 12 лет занимались субарендой объектов в нескольких регионах РФ. 
-						Более 200 объектов в управление.  Спрос на аренду жилья есть в каждом городе и мы научим Вас зарабатывать на этом!
-						</div>
-				</div>
-				<div class="rs">
-					<div class="img_wrapper"><img src="img/subrent-img.jpg" alt=""></div>
-				</div>
-				<div class="bs">
-					<ul>
-						<li>
-							<div class="num">1</div>
-							<p>Гостиничные услуги востребованы в крупных и малых городах. </p>
-						</li>
-
-						<li>
-							<div class="num">2</div>
-							<p>Формат размещения гостей зависит от численности населения 
-								и интенсивности туристического/ рабочего трафика </p>
-						</li>
-
-						<li>
-							<div class="num">3</div>
-							<p>В крупных городах большую долю занимают отели и гостиницы. В малых городах апарт-гостиницы и посуточная аренда квартир выходят на первый план. 
+							<p>
+								Развиваем сеть с нуля! <br>
+								Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов. Сеть приносит чистую
+								прибыль свыше 700 000 руб/мес.
 							</p>
 						</li>
-
 						<li>
-							<div class="num">4</div>
-							<p>Комбинация краткосрочной 
-								и долгосрочной аренды объектов обеспечивает 80% загрузку сети круглый год. </p>
+							<popup :status="popup_current_message" v-on:form_data="get_form_data"
+								cta-name="Узнать условия вашего города" title="Узнать условия вашего города"
+								pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''}
+									]"></popup>
 						</li>
 					</ul>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="banner_2"></section>
-
-	<section id="calc">
-		<div class="container">
-			<div class="row">
-				<div class="ls">
-					<div class="h1">СУТЬ БИЗНЕСА</div>
-					<ul>
-						<li>
-							Вы будете зарабатывать на сдаче в аренду апартаментов, квартир, отелей, гостиниц на срок от 3-х лет. 
-						</li>
-
-						<li>
-							Реновация объекта: косметический ремонт, меблировка, хоумстейджинг.
-						</li>
-
-						<li>
-							Пересдача в краткосрочную и долгосрочную субаренду частным лицам и корпоративным клиентам.
-						</li>
-					</ul>
-				</div>
-				<div class="rs">
-					<ul>
-						<li v-for="calc in calcs">
-							<div class="calc">
-								<div class="title">{{calc.title}}</div>
-								<div class="scaler">
-									<span :class="{current: calc.current == 1}">1</span>
-									<span :class="{current: calc.current == 3}">3</span>
-									<span :class="{current: calc.current == 10}">10</span>
-									<span :class="{current: calc.current == 20}">20</span>
-									<span :class="{current: calc.current == 30}">30</span>
-									<span :class="{current: calc.current == 50}">50</span>
-								</div>
-								<input type="range" 
-									:min="calc.min" 
-									:max="calc.max" 
-									v-model="calc.current" 
-									:step="calc.step"
-									v-on:change="step_changer(calc)"
-									>
-								<div>{{calc.current}}</div>
-								<div>{{step_changer(calc)}} ₽</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-	<div class="container" style="display: none;">
-		<div class="row">
-			<div class="my-slider-wrapper">
-				<div class="my-slider">
-					<div>
-						<a href="img/favicon.png" data-fancybox><img src="img/favicon.png" alt=""></a>
+		<section id="subrent">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="h1">СУБАРЕНДА – ЭТО БИЗНЕС, АКТУАЛЬНЫЙ ДЛЯ ЛЮБОГО ГОРОДА </div>
+						<div class="pretitle">Перед тем, как запустить франшизу, 12 лет занимались субарендой объектов в
+							нескольких регионах РФ.
+							Более 200 объектов в управление. Спрос на аренду жилья есть в каждом городе и мы научим Вас
+							зарабатывать на этом!
+						</div>
 					</div>
-					<div>2</div>
-					<div>3</div>
-					<div>4</div>
-					<div>5</div>
-					<div>6</div>
-					<div>7</div>
-				  </div>
+					<div class="rs">
+						<div class="img_wrapper"><img src="img/subrent-img.jpg" alt=""></div>
+					</div>
+					<div class="bs">
+						<ul>
+							<li>
+								<div class="num">1</div>
+								<p>Гостиничные услуги востребованы в крупных и малых городах. </p>
+							</li>
 
+							<li>
+								<div class="num">2</div>
+								<p>Формат размещения гостей зависит от численности населения
+									и интенсивности туристического/ рабочего трафика </p>
+							</li>
+
+							<li>
+								<div class="num">3</div>
+								<p>В крупных городах большую долю занимают отели и гостиницы. В малых городах
+									апарт-гостиницы и посуточная аренда квартир выходят на первый план.
+								</p>
+							</li>
+
+							<li>
+								<div class="num">4</div>
+								<p>Комбинация краткосрочной
+									и долгосрочной аренды объектов обеспечивает 80% загрузку сети круглый год. </p>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
+		</section>
 
-			<popup
-					:status="popup_current_message"
-					v-on:form_data="get_form_data"
-					cta-name="Оставить заявку"
-					title="Оставить заявку"
-					pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-					:inputs = "[
+		<section id="banner_2"></section>
+
+		<section id="calc">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="h1">СУТЬ БИЗНЕСА</div>
+						<ul>
+							<li>
+								Вы будете зарабатывать на сдаче в аренду апартаментов, квартир, отелей, гостиниц на срок
+								от 3-х лет.
+							</li>
+
+							<li>
+								Реновация объекта: косметический ремонт, меблировка, хоумстейджинг.
+							</li>
+
+							<li>
+								Пересдача в краткосрочную и долгосрочную субаренду частным лицам и корпоративным
+								клиентам.
+							</li>
+						</ul>
+					</div>
+					<div class="rs">
+						<ul>
+							<li v-for="calc in calcs">
+								<div class="calc">
+									<div class="title">{{calc.title}}</div>
+									<div class="scaler">
+										<span v-on:click="set_calc_current(calc, 1)"
+											:class="{current: calc.current == 1}">1</span>
+										<span v-on:click="set_calc_current(calc, 3)"
+											:class="{current: calc.current == 3}">3</span>
+										<span v-on:click="set_calc_current(calc, 10)"
+											:class="{current: calc.current == 10}">10</span>
+										<span v-on:click="set_calc_current(calc, 20)"
+											:class="{current: calc.current == 20}">20</span>
+										<span v-on:click="set_calc_current(calc, 30)"
+											:class="{current: calc.current == 30}">30</span>
+										<span v-on:click="set_calc_current(calc, 50)"
+											:class="{current: calc.current == 50}">50</span>
+									</div>
+									<input type="range" :min="calc.min" :max="calc.max" v-model="calc.current"
+										:step="calc.step" v-on:change="step_changer(calc)">
+									<div class="res">{{step_changer(calc)}} ₽</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="forms">
+			<div class="container">
+				<div class="row">
+					<mxform v-on:form_data="get_form_data" title="заполните форму и мы вышлем вам финмодель" pretitle=""
+						:inputs="[
+					{type:'text', caption:'Ваше имя', value:''},
+					{type:'tel', caption:'Номер телефона', value:'', required:true},
+					{type:'email', caption:'E-mail', value:'', required:true},
+					{type:'text', caption:'Город', value:''}
+					]"></mxform>
+				</div>
+			</div>
+		</section>
+
+		<section id="prepare">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="img_wrapper"><img src="img/prepare-img.jpg" alt=""></div>
+					</div>
+					<div class="rs">
+						<div class="ts">
+							<div class="h1">ПОДГОТОВКА ОБЪЕКТОВ</div>
+							<ul class="usual">
+								<li>Залог за 1-й и последний месяц по договору аренды.</li>
+								<li>Косметический ремонт и меблировка.
+									Фирменный текстиль и декоративные элементы.
+								</li>
+								<li>Продающая фотосессия, обработка снимков.
+								</li>
+								<li>Настройка цифровой инфраструктуры: сайт,
+									реклама, программа для букинга, агрегация
+									заявок с порталов и касса.
+								</li>
+							</ul>
+						</div>
+						<div class="bs">
+							<div class="title">ПРИМЕР ИНВЕСТИЦИЙ ДЛЯ НАЧАЛА РАБОТЫ:</div>
+							<ul>
+								<li>
+									<div class="num">
+										<div class="in">2,35 <span>млн.руб</span> </div>
+									</div>
+									<p>Гостиница из 10 номеров</p>
+								</li>
+
+								<li>
+									<div class="num">
+										<div class="in">650<span>тыс.руб</span> </div>
+									</div>
+									<p>Апартаменты 12-18 кв.м. 1 ед.</p>
+								</li>
+
+								<li>
+									<div class="num">
+										<div class="in">95<span>тыс.руб</span> </div>
+									</div>
+									<p>1 – к квартира, 1 ед..</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="subrent_2">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="h1">СУБАРЕНДА ОБЪЕКТОВ</div>
+						<div class="pretitle">Прибыль и расходы на примере сети из 10 квартир</div>
+						<ul>
+							<li class="red"><span>Выручка за месяц</span><span>645 000 ₽</span></li>
+							<li><span>Аренда объектов</span><span>275 000 ₽</span></li>
+							<li><span>Коммунальные услуги</span><span>49 000 ₽</span></li>
+							<li><span>Услуги горничных и стирка белья</span><span>50 000 ₽</span></li>
+							<li><span>Ванные принадлежности</span><span>8 000 ₽</span></li>
+							<li><span>Рекламный бюджет</span><span>20 000 ₽</span></li>
+							<li><span>Мелкие ремонтные работы</span><span>16 000 ₽</span></li>
+							<li><span>Другие расходы</span><span>19 000 ₽</span></li>
+							<li><span>Эквайринг и налоги</span><span>28 000 ₽</span></li>
+							<li><span>Роялти</span><span>25 300 ₽</span></li>
+							<li class="red"><span>Прибыль за месяц</span><span>156 000 ₽</span></li>
+						</ul>
+					</div>
+					<div class="rs">
+						<div class="img_wrapper"><img src="img/subarenda-img.jpg" alt=""></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_3">
+			<div class="container">
+				<div class="row">
+					<div class="h1">ДРАЙВЕРЫ РАЗВИТИЯ БИЗНЕСА ПО СУБАРЕНДЕ 
+						В 2022 – 2030 ГОДАХ</div>
+						<div class="pretitle">Технологии работы «DЕКАБРИСТ» обеспечат успех сети, даже если:
+							У ВАС НЕТ ОПЫТА В ГОСТИНИЧНОЙ СФЕРЕ И 
+							ЭТО БУДЕТ ВАШ ПЕРВЫЙ БИЗНЕС.
+							</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="arrowed">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li>
+							<div class="title">субсидии для гостиниц и предприятий из приоритетных отраслей</div>
+							<div class="h1">до 10 млн</div>
+							<p class="uppercased">для гостиниц</p>
+
+							<div class="h1">до 1 млн</div>
+							<p class="uppercased">для предприятийиз приоритетных отраслей</p>
+						</li>
+						<li>
+							<div class="title">ростуризм запустил 
+								3 новые грантовые программы в туризме</div>
+								<div class="h1">35 млрд. руб.</div>
+								<p>Федеральное агентство по туризму (Ростуризм) объявляет старт 
+									З новых грантовых программ поддержки туристического бизнеса в 2022 году. На всю грантовую поддержку Ростуризмом предусмотрено 35 млрд рублей 
+									в и рамках национального проекта «Туризм и индустрия гостеприимства».</p>
+						</li>
+						<li>
+							<div class="title">государство активно выделяет деньги на развитие внутреннего туризма и сферы гостеприимства</div>
+							<p>Меры государственной поддержки субъектов малого и среднего предпринимательства, которые осуществляют деятельность 
+								в сфере гостиничного бизнеса 
+								(код ОКВЭД 55 «Деятельность 
+								по предоставлению мест для временного проживания»).
+								</p>
+							<p class="uppercased bold">Финансовая поддержка:</p>
+							<ul>
+									<li>Субсидии</li>
+									<li>Льготные кредиты, микрозаймы</li>
+									<li>Отсрочка по кредитам</li>
+									<li>Мораторий набанкротство</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="small">Льготное налогообложение:  УСН доходы (1%, 2%) в некоторых регионах и по режиму самозанятости (4-6%).
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<div class="container" style="display: none;">
+			<div class="row">
+				<div class="my-slider-wrapper">
+					<div class="my-slider">
+						<div>
+							<a href="img/favicon.png" data-fancybox><img src="img/favicon.png" alt=""></a>
+						</div>
+						<div>2</div>
+						<div>3</div>
+						<div>4</div>
+						<div>5</div>
+						<div>6</div>
+						<div>7</div>
+					</div>
+
+				</div>
+
+				<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="Оставить заявку"
+					title="Оставить заявку" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+					:inputs="[
 						{type:'text',caption:'Введите имя',  value:''},
 						{type:'tel',caption:'Номер телефона',required:true, value:''}
-						]"
-			></popup>
-			
-			<mxform
-				v-on:form_data="get_form_data"
-				title="Заголовок форма"
-				pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-				:inputs = "[
+						]"></popup>
+
+				<mxform v-on:form_data="get_form_data" title="Заголовок форма"
+					pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
 				{type:'text', caption:'Ваше имя', value:''},
 				{type:'tel', caption:'Номер телефона', value:'', required:true}
-				]"
-			></mxform>
+				]"></mxform>
+			</div>
 		</div>
-	</div>
 
 	</div>
 
