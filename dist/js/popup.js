@@ -68,8 +68,14 @@ let popup = Vue.component('popup', {
                             filled=filled+1; 
                         }
                     }else if(element.type == 'tel'){
-                        element.value=element.value.replace(/[^\d]/g,'');
-                        if (element.value.length > 7) {
+                        element.value = element.value.replace(/[^\d]/g,'');
+                        element.value = element.value.replace(/^(\d{11}).+$/g,'$1');
+                        element.value = element.value.replace(/^[9876543210]/,'+7');
+                        element.value = element.value.replace(/^\+7(\d{3})(\d)/,"+7 ($1) $2");
+                        element.value = element.value.replace(/^(\+7 \(\d{3}\))(\d{3})/,"$1 $2");
+                        element.value = element.value.replace(/(\d{3})(\d{2})/,"$1-$2");
+                        element.value = element.value.replace(/(\d{2})(\d{2})/,"$1-$2");
+                        if (element.value.length > 17) {
                             filled=filled+1;
                             console.log('tel');
                         }

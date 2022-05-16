@@ -14,49 +14,1007 @@
 
 <body>
 	<div id="app">
-		
 
-		
-	<div class="container">
-		<div class="row">
-			<div class="my-slider-wrapper">
-				<div class="my-slider">
-					<div>
-						<a href="img/favicon.webp" data-fancybox><img src="img/favicon.webp" alt=""></a>
+		<header>
+			<div class="container">
+				<div class="row">
+					<input type="checkbox" id="burger">
+					<label for="burger" class="burger"><span></span><span></span><span></span></label>
+
+					<div class="logo"><img src="img/logo.svg" alt=""></div>
+
+					<div class="menu">
+						<ul>
+							<li>
+								<a href="#">Smart технологии</a>
+							</li>
+							<li>
+								<a href="#">Финансовый план</a>
+							</li>
+							<li>
+								<a href="#">Компетенции компании</a>
+							</li>
+							<li>
+								<a href="#">Состав франшизы</a>
+							</li>
+							<li>
+								<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
+							</li>
+							<li>
+								<a href="mailto:a.taymanov@23hotels.ru">a.taymanov@23hotels.ru</a>
+							</li>
+						</ul>
 					</div>
-					<div>2</div>
-					<div>3</div>
-					<div>4</div>
-					<div>5</div>
-					<div>6</div>
-					<div>7</div>
-				  </div>
-
+				</div>
 			</div>
+		</header>
 
-			<popup
-					:status="popup_current_message"
-					v-on:form_data="get_form_data"
-					cta-name="Оставить заявку"
-					title="Оставить заявку"
-					pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-					:inputs = "[
+		<section id="hero">
+			<div class="container">
+				<div class="row">
+					<h1>ФРАНШИЗА ГОСТИНИЧНОЙ СЕТИ <b>DЕКАБРИСТ</b></h1>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_1">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li>
+							<div class="big_text">с 0 до 100</div>
+						</li>
+						<li>
+							<p>
+								Развиваем сеть с нуля! <br>
+								Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов. Сеть приносит чистую
+								прибыль свыше 700 000 руб/мес.
+							</p>
+						</li>
+						<li>
+							<popup :status="popup_current_message" v-on:form_data="get_form_data"
+								cta-name="Узнать условия вашего города" title="Узнать условия вашего города"
+								pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
+									]"></popup>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="subrent">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="inner">
+							<div class="h1">СУБАРЕНДА – ЭТО БИЗНЕС, АКТУАЛЬНЫЙ ДЛЯ ЛЮБОГО ГОРОДА </div>
+						<div class="pretitle">Перед тем, как запустить франшизу, 12 лет занимались субарендой объектов в
+							нескольких регионах РФ.
+							Более 200 объектов в управление. Спрос на аренду жилья есть в каждом городе и мы научим Вас
+							зарабатывать на этом!
+						</div>
+						</div>
+					</div>
+					<div class="rs">
+						<div class="img_wrapper"><img src="img/subrent-img.webp" alt=""></div>
+					</div>
+					<div class="bs">
+						<ul>
+							<li>
+								<div class="num">1</div>
+								<p>Гостиничные услуги востребованы в крупных и малых городах. </p>
+							</li>
+
+							<li>
+								<div class="num">2</div>
+								<p>Формат размещения гостей зависит от численности населения
+									и интенсивности туристического/ рабочего трафика </p>
+							</li>
+
+							<li>
+								<div class="num">3</div>
+								<p>В крупных городах большую долю занимают отели и гостиницы. В малых городах
+									апарт-гостиницы и посуточная аренда квартир выходят на первый план.
+								</p>
+							</li>
+
+							<li>
+								<div class="num">4</div>
+								<p>Комбинация краткосрочной
+									и долгосрочной аренды объектов обеспечивает 80% загрузку сети круглый год. </p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_2"></section>
+
+		<section id="calc">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="h1">СУТЬ БИЗНЕСА</div>
+						<ul>
+							<li>
+								Вы будете зарабатывать на сдаче в аренду апартаментов, квартир, отелей, гостиниц на срок
+								от 3-х лет.
+							</li>
+
+							<li>
+								Реновация объекта: косметический ремонт, меблировка, хоумстейджинг.
+							</li>
+
+							<li>
+								Пересдача в краткосрочную и долгосрочную субаренду частным лицам и корпоративным
+								клиентам.
+							</li>
+						</ul>
+					</div>
+					<div class="rs">
+						<ul>
+							<li v-for="calc in calcs">
+								<div class="calc">
+									<div class="title">{{calc.title}}</div>
+									<div class="scaler">
+										<span v-on:click="set_calc_current(calc, 1)"
+											:class="{current: calc.current == 1}">1</span>
+										<span v-on:click="set_calc_current(calc, 3)"
+											:class="{current: calc.current == 3}">3</span>
+										<span v-on:click="set_calc_current(calc, 10)"
+											:class="{current: calc.current == 10}">10</span>
+										<span v-on:click="set_calc_current(calc, 20)"
+											:class="{current: calc.current == 20}">20</span>
+										<span v-on:click="set_calc_current(calc, 30)"
+											:class="{current: calc.current == 30}">30</span>
+										<span v-on:click="set_calc_current(calc, 50)"
+											:class="{current: calc.current == 50}">50</span>
+									</div>
+									<input type="range" :min="calc.min" :max="calc.max" v-model="calc.current"
+										:step="calc.step" v-on:change="step_changer(calc)">
+									<div class="res">{{step_changer(calc)}} ₽</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="forms">
+			<div class="container">
+				<div class="row">
+					<mxform v-on:form_data="get_form_data" 
+					title="заполните форму и мы вышлем вам финмодель" 
+					pretitle=""
+					btn_title="Получить финмодель"
+						:inputs="[
+					{type:'text', caption:'Ваше имя', value:''},
+					{type:'tel', caption:'Номер телефона', value:'', required:true},
+					{type:'email', caption:'E-mail', value:'', required:true},
+					{type:'text', caption:'Город', value:''}
+					]"></mxform>
+				</div>
+			</div>
+		</section>
+
+		<section id="prepare">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="img_wrapper"><img src="img/prepare-img.webp" alt=""></div>
+					</div>
+					<div class="rs">
+						<div class="ts">
+							<div class="h1">ПОДГОТОВКА ОБЪЕКТОВ</div>
+							<ul class="usual">
+								<li>Залог за 1-й и последний месяц по договору аренды.</li>
+								<li>Косметический ремонт и меблировка.
+									Фирменный текстиль и декоративные элементы.
+								</li>
+								<li>Продающая фотосессия, обработка снимков.
+								</li>
+								<li>Настройка цифровой инфраструктуры: сайт,
+									реклама, программа для букинга, агрегация
+									заявок с порталов и касса.
+								</li>
+							</ul>
+						</div>
+						<div class="bs">
+							<div class="title">ПРИМЕР ИНВЕСТИЦИЙ ДЛЯ НАЧАЛА РАБОТЫ:</div>
+							<ul>
+								<li>
+									<div class="num">
+										<div class="in">2,35 <span>млн.руб</span> </div>
+									</div>
+									<p>Гостиница из 10 номеров</p>
+								</li>
+
+								<li>
+									<div class="num">
+										<div class="in">650<span>тыс.руб</span> </div>
+									</div>
+									<p>Апартаменты 12-18 кв.м. 1 ед.</p>
+								</li>
+
+								<li>
+									<div class="num">
+										<div class="in">95<span>тыс.руб</span> </div>
+									</div>
+									<p>1 – к квартира, 1 ед..</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="subrent_2">
+			<div class="container">
+				<div class="row">
+					<div class="ls">
+						<div class="h1">СУБАРЕНДА ОБЪЕКТОВ</div>
+						<div class="pretitle">Прибыль и расходы на примере сети из 10 квартир</div>
+						<ul>
+							<li class="red"><span>Выручка за месяц</span><span>645 000 ₽</span></li>
+							<li><span>Аренда объектов</span><span>275 000 ₽</span></li>
+							<li><span>Коммунальные услуги</span><span>49 000 ₽</span></li>
+							<li><span>Услуги горничных и стирка белья</span><span>50 000 ₽</span></li>
+							<li><span>Ванные принадлежности</span><span>8 000 ₽</span></li>
+							<li><span>Рекламный бюджет</span><span>20 000 ₽</span></li>
+							<li><span>Мелкие ремонтные работы</span><span>16 000 ₽</span></li>
+							<li><span>Другие расходы</span><span>19 000 ₽</span></li>
+							<li><span>Эквайринг и налоги</span><span>28 000 ₽</span></li>
+							<li><span>Роялти</span><span>25 300 ₽</span></li>
+							<li class="red"><span>Прибыль за месяц</span><span>156 000 ₽</span></li>
+						</ul>
+					</div>
+					<div class="rs">
+						<div class="img_wrapper"><img src="img/subarenda-img.webp" alt=""></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_3">
+			<div class="container">
+				<div class="row">
+					<div class="h1">ДРАЙВЕРЫ РАЗВИТИЯ БИЗНЕСА ПО СУБАРЕНДЕ 
+						В 2022 – 2030 ГОДАХ</div>
+						<div class="pretitle">Технологии работы «DЕКАБРИСТ» обеспечат успех сети, даже если:
+							У ВАС НЕТ ОПЫТА В ГОСТИНИЧНОЙ СФЕРЕ И 
+							ЭТО БУДЕТ ВАШ ПЕРВЫЙ БИЗНЕС.
+							</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="arrowed">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li>
+							<div class="title">субсидии для гостиниц и предприятий из приоритетных отраслей</div>
+							<div class="h1">до 10 млн</div>
+							<p class="uppercased">для гостиниц</p>
+
+							<div class="h1">до 1 млн</div>
+							<p class="uppercased">для предприятийиз приоритетных отраслей</p>
+						</li>
+						<li>
+							<div class="title">ростуризм запустил 
+								3 новые грантовые программы в туризме</div>
+								<div class="h1">35 млрд. руб.</div>
+								<p>Федеральное агентство по туризму (Ростуризм) объявляет старт 
+									З новых грантовых программ поддержки туристического бизнеса в 2022 году. На всю грантовую поддержку Ростуризмом предусмотрено 35 млрд рублей 
+									в и рамках национального проекта «Туризм и индустрия гостеприимства».</p>
+						</li>
+						<li>
+							<div class="title">государство активно выделяет деньги на развитие внутреннего туризма и сферы гостеприимства</div>
+							<p>Меры государственной поддержки субъектов малого и среднего предпринимательства, которые осуществляют деятельность 
+								в сфере гостиничного бизнеса 
+								(код ОКВЭД 55 «Деятельность 
+								по предоставлению мест для временного проживания»).
+								</p>
+							<p class="uppercased bold">Финансовая поддержка:</p>
+							<ul>
+									<li>Субсидии</li>
+									<li>Льготные кредиты, микрозаймы</li>
+									<li>Отсрочка по кредитам</li>
+									<li>Мораторий набанкротство</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="small">Льготное налогообложение:  УСН доходы (1%, 2%) в некоторых регионах и по режиму самозанятости (4-6%).
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="forms">
+			<div class="container">
+				<div class="row">
+					<mxform v-on:form_data="get_form_data" title="заполните форму и мы вышлем вам финмодель" pretitle=""
+						:inputs="[
+					{type:'text', caption:'Ваше имя', value:''},
+					{type:'tel', caption:'Номер телефона', value:'', required:true},
+					{type:'email', caption:'E-mail', value:'', required:true},
+					{type:'text', caption:'Город', value:''}
+					]"></mxform>
+				</div>
+			</div>
+		</section>
+
+		<section id="patterned">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li>
+							Чем больше объектов будет 
+							в вашей гостиничной сети, тем ниже издержки на привлечение гостей 
+							и комиссии агрегаторам. 
+						</li>
+
+						<li>
+							Чем больше сеть, тем больше узнаваемость бренда DЕКАБРИСТ 
+							и больше прямых продаж лояльным гостям, как следствие, выше средний чек 
+							и продолжительность аренды.							
+						</li>
+
+						<li>
+							Для некоторых регионов создание сети объектов - это единственный способ зарабатывать и быть прибыльными.
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="sostav">
+			<div class="container">
+				<div class="row">
+					<div class="h1">СОСТАВ ФРАНШИЗЫ «DЕКАБРИСТ»</div>
+					<div class="pretitle">Система обучения выстроена таким образом, что Вы разберетесь во всех тонкостях и будете независимым предпринимателем. Вы сможете без лишних затрат подключать и сдавать новые объекты в своем городе.</div>
+				</div>
+				<div class="row">
+					<ul>
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-12.svg" alt="">
+							</div>
+							<p>Обучение технологии работы от владельца сети DЕКАБРИСТ.  Поиск объектов, торг до оптимальной цены. Бронирование объектов, работа с гостем.</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-11.svg" alt="">
+							</div>
+							<p>Торговая марка «DЕКАБРИСТ».
+								Создание контента в социальных сетях.
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-10.svg" alt="">
+							</div>
+							<p>Отладка работы с коммерческим сегментом (B2B) и частными лицами (В2С).
+							</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-9.svg" alt="">
+							</div>
+							<p>Подробное руководство 
+								по ведению бизнеса. Технологии 
+								и инструменты бизнеса (обучение,
+								материалы, программное обеспечение).
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-8.svg" alt="">
+							</div>
+							<p>Проработка букинговых 
+								площадок и порталов 
+								с туристическим трафиком.
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-7.svg" alt="">
+							</div>
+							<p>Создание сайта с модулем 
+								бронирования номеров. 
+								Оптимизация сайта и работа над его выдачей в поисковых системах.
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-6.svg" alt="">
+							</div>
+							<p>Оценка и косметический ремонт помещения. Профессиональная фотосессия объектов и обработка для публикации.</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-5.svg" alt="">
+							</div>
+							<p>Технология подбора персонала: профили сотрудников, платформы, инструкции для работы.
+							</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-4.svg" alt="">
+							</div>
+							<p>Подключение программного обеспечения для бронирования номеров и агрегации заявок 
+								со сторонних ресурсов.
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-3.svg" alt="">
+							</div>
+							<p>Создание ценовой 
+								политики
+								</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-2.svg" alt="">
+							</div>
+							<p>Удаленное обучение технике продаж и телефонному разговору с клиентами.</p>
+						</li>
+
+						<li>
+							<div class="img_wrapper">
+								<img src="img/sostav-img-1.svg" alt="">
+							</div>
+							<p>Ведение работы до выхода 
+								на плановые показатели прибыли, за вами закрепляется личный куратор.
+								</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="format_list">
+			<div class="container">
+				<div class="row">
+					<div class="h1">ФОРМАТЫ ФРАНШИЗЫ «DЕКАБРИСТ»</div>
+				</div>
+				<div class="row">
+					<ul>
+						<li>
+							<div class="num">1</div>
+							<div class="title">Пакет START APART</div>
+							<p>Предприниматель без опыта 
+								в гостиничном бизнесе сможет создать и развить сеть 
+								с минимальными вложения 
+								по пакету START APART.
+								</p>
+								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
+									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+									:inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
+										]"></popup>
+						</li>
+
+						<li>
+							<div class="num">2</div>
+							<div class="title">Пакет САМОЗАНЯТЫЙ</div>
+							<p>Пакет САМОЗАНЯТЫЙ подойдет женщинам в декретном отпуске, молодым предпринимателям 
+								и тем, кто ищет дополнительный заработок к основному месту работы. В начале работы достаточно открыть режим самозанятого 
+								и уделять несколько часов в день для развития и обслуживания сети апартаментов в вашем городе. 
+								
+								</p>
+								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
+									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+									:inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
+										]"></popup>
+						</li>
+
+						<li>
+							<div class="num">3</div>
+							<div class="title">пакет ИНВЕСТОР</div>
+							<p>ИНВЕСТОР, который хочет 
+								вложить средства в покупку доходной недвижимости 
+								и получать пассивный доход, может воспользоваться предложением по запуску сети «ПОД КЛЮЧ»  
+								с дальнейшим управлением объектами. Форматы объектов 
+								и город для развития сети определяется управляющей компанией. 
+								</p>
+								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
+									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+									:inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
+										]"></popup>
+						</li>
+
+						<li>
+							<div class="num">4</div>
+							<div class="title">пакет РЕБРЕНДИНГ</div>
+							<p>РЕБРЕНДИНГ существующих объектов даст новый старт для владельцев отелей /гостиниц/ хостелов. Шагнем за рамки одного объекта и добавим новые форматы размещения 
+								к текущему номерному фонду, оптимизируем затраты и создадим стабильный спрос на размещение 
+								в вашей сети.</p>
+								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
+									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+									:inputs="[
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
+										]"></popup>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="packet">
+			<div class="packet_hero">
+				<img src="img/paket-1.webp" alt="">
+			</div>
+			<div class="paket_title">
+				<div class="container">
+					<div class="row">
+						<div class="h1">ПАКЕТ <b>«START APART»</b></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<ul class="bbls">
+						<li>
+							<div class="num">
+								<div class="in">
+									155 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от краткосрочной 
+								аренды от 10 объектов за месяц. 
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									110 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от среднесрочной/
+								долгосрочной аренды 
+								10 объектов за месяц. 
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									390 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Паушальный взнос 
+								(вносится один раз)</p>
+						</li>
+
+						<li>
+							<div class="round">
+								<b>Роялти</b> 
+								стоимость аренды 
+								полного номерного 
+								фонда за 1 сутки.
+
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="row">
+					<div class="sticker">
+						<div class="title">ДЛЯ НАЧИНАЮЩИХ ПРЕДПРИНИМАТЕЛЕЙ</div>
+						<p>Этот формат подойдет для людей без опыта в отельном бизнесе. Обучаем подробной технологии, как создать 
+							сеть объектов и обеспечить заселение от 70 до 100%. Минимальные вложения на старте и оптимизация 
+							расходов при росте количества объектов.
+							</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="packet">
+			<div class="packet_hero">
+				<img src="img/paket-2.webp" alt="">
+			</div>
+			<div class="paket_title">
+				<div class="container">
+					<div class="row">
+						<div class="h1">ПАКЕТ <b>«САМОЗАНЯТЫЙ»</b></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<ul class="bbls">
+						<li>
+							<div class="num">
+								<div class="in">
+									70 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от краткосрочной 
+								аренды 5 квартир за месяц. 
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									50 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от долгосрочной 
+								аренды 
+								5 квартир за месяц. </p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									45 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Стоимость обучения
+								(оплачивается 
+								один раз)
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">–</div>
+							</div>
+							<p>Роялти 
+								отсутствует
+								</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="row">
+					<div class="col-6 l">
+						<div class="sticker">
+							<div class="title">ДЛЯ НАЧИНАЮЩИХ ПРЕДПРИНИМАТЕЛЕЙ</div>
+							<p>Этот формат подойдет для людей без опыта в отельном бизнесе. Обучаем подробной технологии, как создать 
+								сеть объектов и обеспечить заселение от 70 до 100%. Минимальные вложения на старте и оптимизация 
+								расходов при росте количества объектов.
+								</p>
+						</div>
+					</div>
+					<div class="col-6 r">
+						<ul class="list">
+							<li>При сдаче до 10 объектов возможно работать 
+								без администратора и координировать работу из дома. 
+							</li>
+							<li>
+								Денежный поток в месяц не превышает 300 т.р.(зависит 
+								от региона), оплаченных на карту в режиме Самозанятости. Это самая простая юридическая форма работы со ставкой налога от 4 до 6%.
+							</li>
+							<li>
+								Дополнительно нанимается горничная, технический 
+								работник для мелкого ремонта и прачечная на аутсорсе.
+							</li>
+							<li>
+								Отличное решение для активных женщин в декретном отпуске. 
+							</li>
+							<li>
+								Личный заработок от 50 т.р. за месяц на сдаче апартаментов.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="packet">
+			<div class="packet_hero">
+				<img src="img/paket-3.webp" alt="">
+			</div>
+			<div class="paket_title">
+				<div class="container">
+					<div class="row">
+						<div class="h1">ПАКЕТ <b>«РЕБРЕНДИНГ»</b></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-6 l">
+						<ul class="bbls x2">
+							<li>
+								<div class="num">
+									<div class="in">
+										249 <span>тыс.руб</span>
+									</div>
+								</div>
+								<p>Паушальный взнос 
+									(вносится один раз)
+									</p>
+							</li>
+	
+							<li>
+								<div class="round">
+									<b>Роялти</b> 
+									стоимость аренды 
+									полного номерного 
+									фонда за 1 сутки.
+	
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="col-6 r v-center">
+						<ul class="list">
+							<li>Отель из 10 номеров приносит выручку 665 т.р. Прибыль от 190 т.р.</li>
+							<li>Краткосрочная аренда 10 квартир / апартаментов приносит выручку 645 т.р. Прибыль от 155 т.р.</li>
+							<li>Долгосрочная аренда 10 квартир / апартаментов приносит выручку 440 т.р. Прибыль от 100 т.р.</li>
+							<li>Хостел на 30 койко–мест приносит выручку 460 т.р. Прибыль от 140 т.р.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="sticker">
+						<div class="title">УВЕЛИЧЬТЕ ПРИБЫЛЬ СВОЕЙ СЕТИ НА 300%</div>
+						<p>Ваш бизнес может приносить большую прибыль, 
+							если к текущему номерному фонду добавить 
+							размещение в апартаментах и квартирах. Оформим объекты в едином стиле и создадим удобную 
+							систему бронирования и управления сетью. 
+							</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="packet">
+			<div class="packet_hero">
+				<img src="img/paket-4.webp" alt="">
+			</div>
+			<div class="paket_title">
+				<div class="container">
+					<div class="row">
+						<div class="h1">ПАКЕТ <b>«инвестор»</b></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<ul class="bbls">
+						<li>
+							<div class="num">
+								<div class="in">
+									2,19 <span>млн.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от краткосрочной 
+								аренды 5 квартир за месяц. 
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									534 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Прибыль от субаренды 
+								30 объектов за месяц.
+								</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">
+									590 <span>тыс.руб</span>
+								</div>
+							</div>
+							<p>Паушальный взнос 
+								(вносится один раз)</p>
+						</li>
+
+						<li>
+							<div class="num">
+								<div class="in">50/50%</div>
+							</div>
+							<p>Распределение 
+								прибыли
+								</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="row">
+					<div class="col-6 l">
+						<div class="sticker">
+							<div class="title">БИЗНЕС ПО СУБАРЕНДЕ ДОХОДНОЙ НЕДВИЖИМОСТИ</div>
+							<p>Вы инвестируете средства в покупку доходной недвижимости. За подбор, запуск и управление объектами отвечает УК. Виды объектов: отели, хостелы, гостиницы, перепланировка коммерческих помещений, покупка помещений с торгов, квартиры и апартаменты.
+							</p>
+						</div>
+					</div>
+					<div class="col-6 r">
+						<ul class="list">
+							<li>Инвестор покупает объект и передает по договору долгосрочной аренды управляющей компании.
+							</li>
+							<li>Управляющая компания ведет работу по сдаче и обслуживанию объектов. Находит и договаривается об условия на новые объекты, расширяя номерной фонд.
+
+							</li>
+							<li>Инвестор вкладывает средства в косметический/капитальный ремонт номерного фонда. 
+
+							</li>
+							<li>СКОЛЬКО ПРИНОСИТ СЕТЬ:
+								Состав номерного фонда: 10 номеров отеля, 
+								10 апартаментов, 20 квартир.
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="banner_4">
+			<div class="container">
+				<div class="row">
+					<div class="title">Приглашаем к сотрудничеству стратегического инвестора. Вложения в развитие сети от 100 млн рублей. Предлагаем индивидуальные условия сотрудничества.
+					</div>
+					<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать условия"
+					title="узнать условия" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+					:inputs="[
 						{type:'text',caption:'Введите имя',  value:''},
 						{type:'tel',caption:'Номер телефона',required:true, value:''}
-						]"
-			></popup>
-			
-			<mxform
-				v-on:form_data="get_form_data"
-				title="Заголовок форма"
-				pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-				:inputs = "[
+						]"></popup>
+				</div>
+			</div>
+		</section>
+
+		<section id="patterned_2">
+			<div class="container">
+				<div class="row">
+					<ul>
+						<li>
+							<div class="img_wrapper"><img src="img/logo-on-white.svg" alt=""></div>
+						</li>
+						<li>
+							Франшиза гостиничной сети «DЕКАБРИСТ» — это сочетание эффективных 
+							технологий работы и экспертность 
+							для развития вашей сети.
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="forcebusiness">
+			<div class="container">
+				<div class="row">
+					<div class="ls"><div class="img_wrapper"><img src="img/forcebusiness-img.webp" alt=""></div></div>
+					<div class="rs">
+						<div class="h1">Развивайте свой бизнес вместе с экспертами 
+							в сфере гостеприимства.</div>
+
+							<ul>
+								<li>
+									<div class="title">12 лет</div>
+									<p>Развиваем гостиничный сервис в Забайкальском крае.</p>
+								</li>
+
+								<li>
+									<div class="title">>100 млн.руб</div>
+									<p>Годовая выручка домашней сети в г. Чита.</p>
+								</li>
+
+								<li>
+									<div class="title">>150</div>
+									<p>Объектов в управлении.</p>
+								</li>
+
+								<li>
+									<div class="title">>100 чел.</div>
+									<p>Обеспечивают работу сети, отвечают за работу с гостями и рекламные каналы.</p>
+								</li>
+
+								<li>
+									<div class="title">>50 000</div>
+									<p>Гостей со всего мира воспользовались нашими услугами.</p>
+								</li>
+
+								<li>
+									<div class="title">>300 000 чел.</div>
+									<p>гостей</p>
+								</li>
+							</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="forms">
+			<div class="container">
+				<div class="row">
+					<mxform v-on:form_data="get_form_data" title="заполните форму и мы вышлем вам финмодель" pretitle=""
+						:inputs="[
+					{type:'text', caption:'Ваше имя', value:''},
+					{type:'tel', caption:'Номер телефона', value:'', required:true},
+					{type:'email', caption:'E-mail', value:'', required:true},
+					{type:'text', caption:'Город', value:''}
+					]"></mxform>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="img_wrapper"><img src="img/logo-on-black.svg" alt=""></div>
+				</div>
+			</div>
+		</footer>
+
+
+
+		<div class="container" style="display: none;">
+			<div class="row">
+				<div class="my-slider-wrapper">
+					<div class="my-slider">
+						<div>
+							<a href="img/favicon.webp" data-fancybox><img src="img/favicon.webp" alt=""></a>
+						</div>
+						<div>2</div>
+						<div>3</div>
+						<div>4</div>
+						<div>5</div>
+						<div>6</div>
+						<div>7</div>
+					</div>
+
+				</div>
+
+				<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="Оставить заявку"
+					title="Оставить заявку" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
+					:inputs="[
+						{type:'text',caption:'Введите имя',  value:''},
+						{type:'tel',caption:'Номер телефона',required:true, value:''}
+						]"></popup>
+
+				<mxform v-on:form_data="get_form_data" title="Заголовок форма"
+					pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
 				{type:'text', caption:'Ваше имя', value:''},
 				{type:'tel', caption:'Номер телефона', value:'', required:true}
-				]"
-			></mxform>
+				]"></mxform>
+			</div>
 		</div>
-	</div>
 
 	</div>
 

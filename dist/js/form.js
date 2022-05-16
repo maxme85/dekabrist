@@ -10,7 +10,7 @@ let mxform = Vue.component('mxform', {
               <input v-else :type="input.type" v-on:input="check_form" :required="input.required" v-model="input.value" :placeholder="input.caption" />
           </div>
           <div class="input_wrapper">
-              <button class="btn" type="submit" :disabled="!checked">Отправить</button>
+              <button class="btn" type="submit" :disabled="!checked">{{btn_title}}</button>
           </div>
 
           
@@ -33,6 +33,10 @@ let mxform = Vue.component('mxform', {
             default: ''
         },
         inputs: Array,
+        btn_title: {
+            type: String,
+            default: 'Отправить'
+        },
         responceOk: {
             type: String,
             default: 'Форма успешно отправлена'
@@ -61,34 +65,44 @@ let mxform = Vue.component('mxform', {
             let req_fields = this.inputs.filter(elements => elements.required == true);
             let filled = 0;
             let count_of_required_fields = req_fields.length;
-
+            
             req_fields.forEach(element => {
+                
+                
                 if (element.value !== '') {
                     if (element.type == 'email') {
                         if (/^[a-zA-Z0-9\-_\.]+@[a-zA-Z0-9\-_\.]+\.[a-zA-Z0-9\-_\.]+$/.test(element.value)) {
-                            filled = filled + 1;
+                            filled=filled+1; 
                         }
-                    } else if (element.type == 'tel') {
-                        element.value = element.value.replace(/[^\d]/g, '');
-                        if (element.value.length > 7) {
-                            filled = filled + 1;
+                    }else if(element.type == 'tel'){
+                        element.value = element.value.replace(/[^\d]/g,'');
+                        element.value = element.value.replace(/^(\d{11}).+$/g,'$1');
+                        element.value = element.value.replace(/^[9876543210]/,'+7');
+                        element.value = element.value.replace(/^\+7(\d{3})(\d)/,"+7 ($1) $2");
+                        element.value = element.value.replace(/^(\+7 \(\d{3}\))(\d{3})/,"$1 $2");
+                        element.value = element.value.replace(/(\d{3})(\d{2})/,"$1-$2");
+                        element.value = element.value.replace(/(\d{2})(\d{2})/,"$1-$2");
+                        if (element.value.length > 17) {
+                            filled=filled+1;
+                            console.log('tel');
                         }
-                    } else {
-                        filled = filled + 1;
+                        
+                    }else{
+                        filled=filled+1; 
                     }
-
+                    
                 }
-            });
+			});
 
-            console.log(count_of_required_fields, filled);
+            //console.log(count_of_required_fields, filled);
 
             if (count_of_required_fields == filled) {
-                this.checked = true;
-            } else {
-                this.checked = false;
-            }
+				this.checked = true;
+			}else{
+				this.checked = false;
+			}
 
-
+            
 
         },
         changeStatus() {
