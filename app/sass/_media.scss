@@ -72,6 +72,8 @@
         display: flex;
         h1{
             font-size: 50px;
+            width: 970px;
+            margin: auto;
         }
     }
 
@@ -267,10 +269,195 @@
     }
 
     #arrowed{
+        .container{
+            .row{
+                &>ul{
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    gap: 60px;
+                    &>li{
+                        padding-top: 70px;
+                        .title{
+                            min-height: 80px;
+                            margin-bottom: 30px;
+                            font-size: 18px;
+                        }
+                        ul{
+                            list-style-type: disc;
+                            padding-left: 20px;
+                            line-height: 1.6;
+                            li{
+                                font-family: 'Montserrat';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .small{
+            text-align: center;
+            width: 100%;
+        }
+        
+    }
+
+    #patterned{
+        ul{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+
+    #sostav{
+        padding: 100px 0;
+        .h1{
+            font-size: 50px;
+            text-align: center;
+            padding: 0 20%;
+        }
+        .pretitle{
+            text-align: center;
+            padding: 0 15%;
+        }
+        ul{
+            grid-template-columns: repeat(3,1fr);
+            margin-top: 50px;
+            gap: 80px;
+            li{
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                margin: 0;
+                .img_wrapper{
+                    margin: auto;
+                    margin-bottom: 20px;
+                    width: 60px;    
+                    height: 60px;
+                }
+            }
+        }
+    }
+
+    #format_list{
+        padding: 100px 0;
+        .h1{
+            font-size: 50px;
+        }
         ul{
             display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 60px;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            li{
+                padding-bottom: 100px;
+                p{
+                    padding: 0 20px;
+                }
+                .cta_mx{
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    .h1{
+                        text-align: left;
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                    }
+                    .pretitle{
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+
+    .packet{
+        
+        .paket_title{
+            padding: 30px 0;
+            .h1{
+                font-size: 50px;
+                b{
+                    display: inline-block;
+                }
+            }
+        }
+        .sticker{
+            .title{
+                padding: 25px 45px;
+            }
+            p{
+                padding: 25px 45px;
+                font-size: 18px;
+            }
+        }
+        ul.bbls{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 40px;
+            margin: 50px 0;
+            &.x2{
+                grid-template-columns: repeat(2,1fr);
+            }
+            li{
+                margin: 0;
+            }
+        }
+        ul.list{
+            font-family: 'Montserrat';
+        }
+        .col-6{
+            display: flex;
+            &.l{
+                padding-right: 50px;
+            }
+            &.r{
+                padding-left: 50px;
+            }
+            &.v-center{
+                align-self: center;
+            }
+        }
+    }
+
+    #banner_4{
+        padding: 100px 0;
+        .title{
+            font-size: 20px;
+            line-height: 1.7;
+        }
+    }
+
+    #patterned_2{
+        ul{
+            li{
+                font-size: 30px;
+                text-align: center;
+                padding: 0 100px;
+            }
+        }
+    }
+
+    #forcebusiness{
+        padding: 100px 0;
+        .ls{
+            width: 50%;
+            padding-right: 40px;
+        }
+        .rs{
+            width: 50%;
+            padding-left: 40px;
+            .h1{
+                font-size: 50px;
+            }
+            ul{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 20px;
+                li{
+                    p{
+                        margin: 0;
+                    }
+                }
+            }
         }
     }
 }

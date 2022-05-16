@@ -76,7 +76,9 @@
 								cta-name="Узнать условия вашего города" title="Узнать условия вашего города"
 								pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
 									{type:'text',caption:'Введите имя',  value:''},
-									{type:'tel',caption:'Номер телефона',required:true, value:''}
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
 									]"></popup>
 						</li>
 					</ul>
@@ -507,8 +509,10 @@
 								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
 									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
 									:inputs="[
-										{type:'text',caption:'Введите имя',  value:''},
-										{type:'tel',caption:'Номер телефона',required:true, value:''}
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
 										]"></popup>
 						</li>
 
@@ -523,8 +527,10 @@
 								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
 									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
 									:inputs="[
-										{type:'text',caption:'Введите имя',  value:''},
-										{type:'tel',caption:'Номер телефона',required:true, value:''}
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
 										]"></popup>
 						</li>
 
@@ -540,8 +546,10 @@
 								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
 									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
 									:inputs="[
-										{type:'text',caption:'Введите имя',  value:''},
-										{type:'tel',caption:'Номер телефона',required:true, value:''}
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
 										]"></popup>
 						</li>
 
@@ -554,8 +562,10 @@
 								<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="узнать подробнее"
 									title="узнать подробнее" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
 									:inputs="[
-										{type:'text',caption:'Введите имя',  value:''},
-										{type:'tel',caption:'Номер телефона',required:true, value:''}
+									{type:'text',caption:'Введите имя',  value:''},
+									{type:'tel',caption:'Номер телефона',required:true, value:''},
+									{type:'email',caption:'E-mail',required:true, value:''},
+									{type:'text',caption:'Город',  value:''}
 										]"></popup>
 						</li>
 					</ul>
@@ -694,7 +704,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-6">
+					<div class="col-6 l">
 						<div class="sticker">
 							<div class="title">ДЛЯ НАЧИНАЮЩИХ ПРЕДПРИНИМАТЕЛЕЙ</div>
 							<p>Этот формат подойдет для людей без опыта в отельном бизнесе. Обучаем подробной технологии, как создать 
@@ -703,7 +713,7 @@
 								</p>
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-6 r">
 						<ul class="list">
 							<li>При сдаче до 10 объектов возможно работать 
 								без администратора и координировать работу из дома. 
@@ -741,8 +751,8 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<div class="col-6">
-						<ul class="bbls">
+					<div class="col-6 l">
+						<ul class="bbls x2">
 							<li>
 								<div class="num">
 									<div class="in">
@@ -765,7 +775,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-6">
+					<div class="col-6 r v-center">
 						<ul class="list">
 							<li>Отель из 10 номеров приносит выручку 665 т.р. Прибыль от 190 т.р.</li>
 							<li>Краткосрочная аренда 10 квартир / апартаментов приносит выручку 645 т.р. Прибыль от 155 т.р.</li>
@@ -846,14 +856,14 @@
 				</div>
 
 				<div class="row">
-					<div class="col-6">
+					<div class="col-6 l">
 						<div class="sticker">
 							<div class="title">БИЗНЕС ПО СУБАРЕНДЕ ДОХОДНОЙ НЕДВИЖИМОСТИ</div>
 							<p>Вы инвестируете средства в покупку доходной недвижимости. За подбор, запуск и управление объектами отвечает УК. Виды объектов: отели, хостелы, гостиницы, перепланировка коммерческих помещений, покупка помещений с торгов, квартиры и апартаменты.
 							</p>
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-6 r">
 						<ul class="list">
 							<li>Инвестор покупает объект и передает по договору долгосрочной аренды управляющей компании.
 							</li>
