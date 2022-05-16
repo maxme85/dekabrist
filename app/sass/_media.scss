@@ -1,9 +1,276 @@
 
 @media (min-width: $bp_md) {
     // styles for tablets
+
 }
 
 @media (min-width: $bp_lg) {
    // styles for desctops
+   header{
+        position: absolute;
+        width: 100%;
+        background: none;
+        .logo{
+            margin-left: 0;
+            img{
+                width: 230px;
+            }
+        }
+        #burger~.burger{
+            display: none;
+        }
+        .row{
+            align-items: center;
+        }
+        .menu{
+            position: absolute;
+            left: auto;
+            top: 0px;
+            right: 0;
+            transform: none;
+            padding: 0;
+            margin: 0;
+            width: auto;
+            background: none;
+            
+            ul{
+                display: flex;
+                justify-content: flex-end;
+                
+                li{
+                    border-left: 1px solid white;
+                    border-bottom: 1px solid white;
+                    max-width: 144px;
+                    display: flex;
+                    align-items: center;
+                    &:hover{
+                        background: $accent1;
+                    }
+                    a{
+                        color: white;
+                        font-size: 14px;
+                        text-align: center;
+                        font-weight: bold;
+                        padding: 20px 20px;
+                    }
+                    &:nth-child(5),&:nth-child(6){
+                        max-width: none;
+                        a{
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    #hero{
+        min-height: 100vh;
+        left: 0;
+        top: 0%;
+        align-items: center;
+        display: flex;
+        h1{
+            font-size: 50px;
+        }
+    }
+
+    #banner_1{
+        ul{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1.3fr;
+            li{
+                display: flex;
+                align-items: center;
+                .big_text{
+                    font-size: 43px;
+                }
+                p{
+                    font-size: 14px;
+                }
+                .cta_mx{
+                    margin-left: auto;
+                    &>.btn{
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    #subrent{
+        padding: 100px 0;
+        .ls{
+            width: 50%;
+            padding-right: 150px;
+            display: flex;
+            align-items: center;
+            .pretitle{
+                font-size: 18px;
+                line-height: 1.5;
+                margin-top: 40px;
+            }
+        }
+        .rs{
+            width: 50%;
+            padding-left: 70px;
+        }
+        .bs{
+            margin-top: 40px;
+            ul{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                li{
+                    display: block;
+                    .num{
+                        margin: auto;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    #banner_2{
+        background: url(../img/dec-img-lounge.jpg) no-repeat center top -442px;
+        background-size: 1680px;
+        width: 100%;
+        height: 380px;
+    }
+
+    #calc{
+        padding: 100px 0;
+        .ls{
+            width: 50%;
+            .h1{
+                font-size: 50px;
+                width: 400px;
+            }
+        }
+        .rs{
+            width: 50%;
+            ul{
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 20px;
+                li{
+                    input{
+                        left: 7%;
+                    }
+                }
+            }
+        }
+    }
+
+    .forms{
+        padding: 100px 0;
+        .mxform{
+            .form{
+                margin-top: 30px;
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 20px;
+                input{
+                    margin: 0;
+                }
+                .btn{
+                    padding: 0 10px;
+                }
+            }
+           .responce{
+               h2{
+                   color: $black;
+               }
+           } 
+        }
+    }
+
+    #prepare{
+        padding-top: 100px;
+        .ls{
+            width: 50%;
+        }
+        .rs{
+            width: 50%;
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            .h1{
+                font-size: 50px;
+            }
+            .bs{
+                ul{
+                    display: grid;
+                    grid-template-columns: repeat(3,1fr);
+                    li{
+                        display: block;
+                        text-align: center;
+                        .num{
+                            margin: auto;
+                        }
+                        p{
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #subrent_2{
+        padding-bottom: 100px;
+        .ls{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .h1{
+                font-size: 50px;
+            }
+            ul{
+                width: 70%;
+                margin-top: 40px;
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    span{
+                       &:first-child{
+                           font-size: 18px;
+                       }
+                       &:last-child{
+                           font-size: 18px;
+                       }
+                    }
+                }
+            }
+        }
+        .rs{
+            width: 50%;
+        }
+    }
+
+    #banner_3{
+        padding: 100px 0;
+        .h1{
+           
+            text-align: center;
+            padding: 0 330px;
+            margin-bottom: 40px;
+        }
+        .pretitle{
+            padding: 0 380px;
+            margin: auto;
+            font-size: 18px;
+        }
+    }
+
+    #arrowed{
+        ul{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 60px;
+        }
+    }
 }

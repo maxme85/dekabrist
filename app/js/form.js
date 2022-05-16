@@ -10,7 +10,7 @@ let mxform = Vue.component('mxform', {
               <input v-else :type="input.type" v-on:input="check_form" :required="input.required" v-model="input.value" :placeholder="input.caption" />
           </div>
           <div class="input_wrapper">
-              <button class="btn" type="submit" :disabled="!checked">Отправить</button>
+              <button class="btn" type="submit" :disabled="!checked">{{btn_title}}</button>
           </div>
 
           
@@ -33,6 +33,10 @@ let mxform = Vue.component('mxform', {
             default: ''
         },
         inputs: Array,
+        btn_title: {
+            type: String,
+            default: 'Отправить'
+        },
         responceOk: {
             type: String,
             default: 'Форма успешно отправлена'
