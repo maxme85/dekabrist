@@ -144,6 +144,7 @@
         padding: 100px 0;
         .ls{
             width: 50%;
+            padding-right: 200px;
             .h1{
                 font-size: 50px;
                 width: 400px;
@@ -203,9 +204,11 @@
                 font-size: 50px;
             }
             .bs{
+                width: 100%;
                 ul{
                     display: grid;
                     grid-template-columns: repeat(3,1fr);
+                    gap: 20px;
                     li{
                         display: block;
                         text-align: center;

@@ -180,12 +180,10 @@ section{
                     align-items: center;
                     justify-content: center;
                     height: 80px;
-                    margin-bottom:30px;
                     font-weight: bold;
                 }
                 .res{
                     border:1px solid $accent1;
-                    margin-top: 30px;
                     height: 80px;
                     display: flex;
                     align-items: center;
@@ -225,19 +223,43 @@ section{
                       }
                 }
                 .scaler{
-                    position: absolute;
+                    position: relative;
                     display: grid;
-                    height: 164px;
+                    height: 184px;
                     left: calc(50% + 15px);
                     z-index: 2;
+                    width: 50px;
+                    padding: 10px 0;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        left: -15px;
+                        top:50%;
+                        width: 1px;
+                        height: 100%;
+                        transform: translate(-50%,-50%);
+                        background: #c0c0c0;
+                    }
                     span{
                         display: flex;
                         align-items: center;
                         cursor: pointer;
                         font-family: "Montserrat";
+                        position: relative;
                         &.current{
                             font-weight: bold;
                             color: $accent1; 
+                            &:before{
+                                content: "";
+                                position: absolute;
+                                left: -15px;
+                                top:50%;
+                                width: 10px;
+                                height: 10px;
+                                transform: translate(-50%,-50%);
+                                background:  $accent1;
+                                border-radius: 100%;
+                            }
                         }
                     }
                 }
@@ -522,6 +544,7 @@ section{
         .h1{
             font-weight: bold;
             margin: 0;
+            text-transform: uppercase;
             b{
                 display: block;
             }

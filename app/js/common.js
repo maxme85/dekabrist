@@ -45,7 +45,32 @@ var app = new Vue({
 			current: 1,
 			step: 1,
 			delta: 30350,
-			sum: 0
+			sum: 0,
+			items:[{
+				count: 1,
+				price: 2190,
+				current: true
+			},{
+				count: 3,
+				price: 5913,
+				current: false
+			},{
+				count: 10,
+				price: 19710,
+				current: false
+			},{
+				count: 20,
+				price: 39420,
+				current: false
+			},{
+				count: 30,
+				price: 59130,
+				current: false
+			},{
+				count: 50,
+				price: 98550,
+				current: false
+			}]
 		},{
 			title:'Субаренда аппартаментов',
 			min: 1,
@@ -53,7 +78,32 @@ var app = new Vue({
 			current: 1,
 			step: 1,
 			delta: 30350,
-			sum: 0
+			sum: 0,
+			items:[{
+				count: 1,
+				price: 1700,
+				current: true
+			},{
+				count: 3,
+				price: 114000,
+				current: false
+			},{
+				count: 10,
+				price: 380000,
+				current: false
+			},{
+				count: 20,
+				price: 760000,
+				current: false
+			},{
+				count: 30,
+				price: 1140000,
+				current: false
+			},{
+				count: 50,
+				price: 1900000,
+				current: false
+			}]
 		},{
 			title:'Субаренда квартир долгосрочно',
 			min: 1,
@@ -61,16 +111,56 @@ var app = new Vue({
 			current: 1,
 			step: 1,
 			delta: 30350,
-			sum: 0
+			sum: 0,
+			items:[{
+				count: 1,
+				price: 40000,
+				current: true
+			},{
+				count: 3,
+				price: 114000,
+				current: false
+			},{
+				count: 10,
+				price: 380000,
+				current: false
+			},{
+				count: 20,
+				price: 760000,
+				current: false
+			},{
+				count: 30,
+				price: 1140000,
+				current: false
+			},{
+				count: 50,
+				price: 1900000,
+				current: false
+			}]
 		}]
 	},
 	methods: {
+		change_current_item(item,calc){
+			calc.items.forEach(element => {
+				element.current = false;
+			});
+			
+			
+			item.current = true;
+		},
 		set_calc_current(item, current){
 			item.current = current;
 		},
 		step_changer(item){
-			console.log(item);
-			return Math.round(item.current*item.delta);
+			let curr;
+			//checkin
+			item.forEach(element => {
+				if (element.current) {
+					curr = element.price;
+				}
+			});
+			return curr;
+			console.log(curr);
 		},
 		get_form_data(data) {
 			//send request

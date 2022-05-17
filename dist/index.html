@@ -67,8 +67,8 @@
 						<li>
 							<p>
 								Развиваем сеть с нуля! <br>
-								Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов. Сеть приносит чистую
-								прибыль свыше 700 000 руб/мес.
+								Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов.<br>
+								Сеть приносит чистую прибыль свыше 700 000 руб/мес.
 							</p>
 						</li>
 						<li>
@@ -162,22 +162,10 @@
 								<div class="calc">
 									<div class="title">{{calc.title}}</div>
 									<div class="scaler">
-										<span v-on:click="set_calc_current(calc, 1)"
-											:class="{current: calc.current == 1}">1</span>
-										<span v-on:click="set_calc_current(calc, 3)"
-											:class="{current: calc.current == 3}">3</span>
-										<span v-on:click="set_calc_current(calc, 10)"
-											:class="{current: calc.current == 10}">10</span>
-										<span v-on:click="set_calc_current(calc, 20)"
-											:class="{current: calc.current == 20}">20</span>
-										<span v-on:click="set_calc_current(calc, 30)"
-											:class="{current: calc.current == 30}">30</span>
-										<span v-on:click="set_calc_current(calc, 50)"
-											:class="{current: calc.current == 50}">50</span>
+										<span v-for="item in calc.items" :class="{current: item.current}" v-on:click="change_current_item(item,calc)">{{item.count}}</span>
 									</div>
-									<input type="range" :min="calc.min" :max="calc.max" v-model="calc.current"
-										:step="calc.step" v-on:change="step_changer(calc)">
-									<div class="res">{{step_changer(calc)}} ₽</div>
+									
+									<div class="res">{{step_changer(calc.items)}} ₽</div>
 								</div>
 							</li>
 						</ul>
@@ -232,21 +220,21 @@
 									<div class="num">
 										<div class="in">2,35 <span>млн.руб</span> </div>
 									</div>
-									<p>Гостиница из 10 номеров</p>
+									<p>Гостиница<br> из 10 номеров</p>
 								</li>
 
 								<li>
 									<div class="num">
 										<div class="in">650<span>тыс.руб</span> </div>
 									</div>
-									<p>Апартаменты 12-18 кв.м. 1 ед.</p>
+									<p>Апартаменты<br> 12-18 кв.м. 1 ед.</p>
 								</li>
 
 								<li>
 									<div class="num">
 										<div class="in">95<span>тыс.руб</span> </div>
 									</div>
-									<p>1 – к квартира, 1 ед..</p>
+									<p>1 – к квартира,<br> 1 ед..</p>
 								</li>
 							</ul>
 						</div>
@@ -616,7 +604,7 @@
 									390 <span>тыс.руб</span>
 								</div>
 							</div>
-							<p>Паушальный взнос 
+							<p>Паушальный взнос <br>
 								(вносится один раз)</p>
 						</li>
 
@@ -706,10 +694,12 @@
 				<div class="row">
 					<div class="col-6 l">
 						<div class="sticker">
-							<div class="title">ДЛЯ НАЧИНАЮЩИХ ПРЕДПРИНИМАТЕЛЕЙ</div>
-							<p>Этот формат подойдет для людей без опыта в отельном бизнесе. Обучаем подробной технологии, как создать 
-								сеть объектов и обеспечить заселение от 70 до 100%. Минимальные вложения на старте и оптимизация 
-								расходов при росте количества объектов.
+							<div class="title">РАБОТА БЕЗ ОФИСА. ЗАНЯТОСТЬ ОТ НЕСКОЛЬКИХ ЧАСОВ В НЕДЕЛЮ.</div>
+							<p>Формат подойдет военным пенсионерам, 
+								домохозяйкам и начинающим предпринимателям. 
+								Вам потребуется уделять работе несколько часов 
+								в неделю для развития и управления сетью квартир 
+								и апартаментов.
 								</p>
 						</div>
 					</div>
@@ -829,7 +819,7 @@
 									534 <span>тыс.руб</span>
 								</div>
 							</div>
-							<p>Прибыль от субаренды 
+							<p>Прибыль от субаренды <br>
 								30 объектов за месяц.
 								</p>
 						</li>
@@ -840,7 +830,7 @@
 									590 <span>тыс.руб</span>
 								</div>
 							</div>
-							<p>Паушальный взнос 
+							<p>Паушальный взнос  <br>
 								(вносится один раз)</p>
 						</li>
 
@@ -848,7 +838,7 @@
 							<div class="num">
 								<div class="in">50/50%</div>
 							</div>
-							<p>Распределение 
+							<p>Распределение  <br>
 								прибыли
 								</p>
 						</li>
