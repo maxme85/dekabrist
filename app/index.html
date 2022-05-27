@@ -26,16 +26,16 @@
 					<div class="menu">
 						<ul>
 							<li>
-								<a href="#">Smart технологии</a>
+								<a href="#subrent_2">Расчет прибыли</a>
 							</li>
 							<li>
-								<a href="#">Финансовый план</a>
+								<a href="#banner_3">Драйверы развития</a>
 							</li>
 							<li>
-								<a href="#">Компетенции компании</a>
+								<a href="#sostav">Состав франшизы</a>
 							</li>
 							<li>
-								<a href="#">Состав франшизы</a>
+								<a href="#format_list">Форматы франшизы</a>
 							</li>
 							<li>
 								<a href="tel:+7 (964)466 58 88">+7 (964)466 58 88</a>
@@ -66,9 +66,9 @@
 						</li>
 						<li>
 							<p>
-								Развиваем сеть с нуля! <br>
-								Начните со сдачи 1-й квартиры и плавно подключите 50 + объектов.<br>
-								Сеть приносит чистую прибыль свыше 700 000 руб/мес.
+								НАЧНИТЕ СО СДАЧИ 1-Й КВАРТИРЫ, АППАРТАМЕНТОВ ИЛИ ПАРЫ ГОСТИНИЧНЫХ НОМЕРОВ И ПЛАВНО ПОДКЛЮЧИТЕ 50 + ОБЪЕКТОВ. <br>
+СЕТЬ ПРИНОСИТ ЧИСТУЮ ПРИБЫЛЬ СВЫШЕ 700 000 РУБ/МЕС.
+
 							</p>
 						</li>
 						<li>
@@ -161,11 +161,12 @@
 							<li v-for="calc in calcs">
 								<div class="calc">
 									<div class="title">{{calc.title}}</div>
+									<input type="range" :min="calc.min" :max="calc.max" v-model="calc.current" v-on:change="range_change(calc)">
 									<div class="scaler">
-										<span v-for="item in calc.items" :class="{current: item.current}" v-on:click="change_current_item(item,calc)">{{item.count}}</span>
+										<span v-for="(item,index) in calc.items" v-on:click="set_calc_current(calc,index+1)" :class="{ current: item.current }">{{item.count}}</span>
 									</div>
 									
-									<div class="res">{{step_changer(calc.items)}} ₽</div>
+									<div class="res">{{calc.sum}} ₽</div>
 								</div>
 							</li>
 						</ul>
@@ -227,14 +228,14 @@
 									<div class="num">
 										<div class="in">650<span>тыс.руб</span> </div>
 									</div>
-									<p>Апартаменты<br> 12-18 кв.м. 1 ед.</p>
+									<p>Апартаменты<br> 12-18 кв.м. 1 объект.</p>
 								</li>
 
 								<li>
 									<div class="num">
 										<div class="in">95<span>тыс.руб</span> </div>
 									</div>
-									<p>1 – к квартира,<br> 1 ед..</p>
+									<p>1 – к квартира,<br> 1 объект.</p>
 								</li>
 							</ul>
 						</div>
@@ -315,7 +316,6 @@
 									<li>Субсидии</li>
 									<li>Льготные кредиты, микрозаймы</li>
 									<li>Отсрочка по кредитам</li>
-									<li>Мораторий набанкротство</li>
 							</ul>
 						</li>
 					</ul>
@@ -808,8 +808,8 @@
 									2,19 <span>млн.руб</span>
 								</div>
 							</div>
-							<p>Прибыль от краткосрочной 
-								аренды 5 квартир за месяц. 
+							<p>ВЫРУЧКА ОТ КРАТКОСРОЧНОЙ АРЕНДЫ
+								30 КВАРТИР ЗА МЕСЯЦ.
 								</p>
 						</li>
 
@@ -819,8 +819,8 @@
 									534 <span>тыс.руб</span>
 								</div>
 							</div>
-							<p>Прибыль от субаренды <br>
-								30 объектов за месяц.
+							<p>ПРИБЫЛЬ ОТ КРАТКОСРОЧНОЙ АРЕНДЫ
+								30 КВАРТИР ЗА МЕСЯЦ.
 								</p>
 						</li>
 
@@ -927,7 +927,7 @@
 
 								<li>
 									<div class="title">>150</div>
-									<p>Объектов в управлении.</p>
+									<p>Объектов.</p>
 								</li>
 
 								<li>
@@ -936,14 +936,10 @@
 								</li>
 
 								<li>
-									<div class="title">>50 000</div>
+									<div class="title">>300</div>
 									<p>Гостей со всего мира воспользовались нашими услугами.</p>
 								</li>
 
-								<li>
-									<div class="title">>300 000 чел.</div>
-									<p>гостей</p>
-								</li>
 							</ul>
 					</div>
 				</div>
@@ -973,38 +969,6 @@
 		</footer>
 
 
-
-		<div class="container" style="display: none;">
-			<div class="row">
-				<div class="my-slider-wrapper">
-					<div class="my-slider">
-						<div>
-							<a href="img/favicon.png" data-fancybox><img src="img/favicon.png" alt=""></a>
-						</div>
-						<div>2</div>
-						<div>3</div>
-						<div>4</div>
-						<div>5</div>
-						<div>6</div>
-						<div>7</div>
-					</div>
-
-				</div>
-
-				<popup :status="popup_current_message" v-on:form_data="get_form_data" cta-name="Оставить заявку"
-					title="Оставить заявку" pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер"
-					:inputs="[
-						{type:'text',caption:'Введите имя',  value:''},
-						{type:'tel',caption:'Номер телефона',required:true, value:''}
-						]"></popup>
-
-				<mxform v-on:form_data="get_form_data" title="Заголовок форма"
-					pretitle="Заполните форму и в ближайшее время с вами свяжется наш менеджер" :inputs="[
-				{type:'text', caption:'Ваше имя', value:''},
-				{type:'tel', caption:'Номер телефона', value:'', required:true}
-				]"></mxform>
-			</div>
-		</div>
 
 	</div>
 

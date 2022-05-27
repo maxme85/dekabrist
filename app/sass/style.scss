@@ -197,8 +197,13 @@ section{
                     transform: rotate(90deg);
                     height: 164px;
                     position: relative;
-                    left: 26%;
                     -webkit-appearance: none;
+
+                    position: absolute;
+                    z-index: 3;
+                    left: calc(50% - 77px);
+                    top: 170px;
+                    height: 1px;
                     &:focus{
                         outline: none;
                     }
@@ -249,17 +254,17 @@ section{
                         &.current{
                             font-weight: bold;
                             color: $accent1; 
-                            &:before{
-                                content: "";
-                                position: absolute;
-                                left: -15px;
-                                top:50%;
-                                width: 10px;
-                                height: 10px;
-                                transform: translate(-50%,-50%);
-                                background:  $accent1;
-                                border-radius: 100%;
-                            }
+                            // &:before{
+                            //     content: "";
+                            //     position: absolute;
+                            //     left: -15px;
+                            //     top:50%;
+                            //     width: 10px;
+                            //     height: 10px;
+                            //     transform: translate(-50%,-50%);
+                            //     background:  $accent1;
+                            //     border-radius: 100%;
+                            // }
                         }
                     }
                 }
@@ -516,6 +521,7 @@ section{
             }
             p{
                 line-height: 1.4;
+                padding: 0 15px;
             }
             .cta_mx{
                 &>.btn{

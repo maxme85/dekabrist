@@ -157,8 +157,13 @@
                 grid-template-columns: repeat(3,1fr);
                 gap: 20px;
                 li{
+                    .calc{
+                        .title{
+                            padding: 0 20px;
+                        }
+                    }
                     input{
-                        left: 7%;
+                        //left: 7%;
                     }
                 }
             }

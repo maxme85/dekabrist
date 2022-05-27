@@ -39,104 +39,53 @@ var app = new Vue({
 		popup_current_message: '',
 		errors: -1,
 		calcs:[{
-			title:'Гостиницы и отели',
+			title:'Сдача номеров гостиницы',
 			min: 1,
-			max: 50,
+			max: 6,
 			current: 1,
 			step: 1,
-			delta: 30350,
-			sum: 0,
-			items:[{
-				count: 1,
-				price: 2190,
-				current: true
-			},{
-				count: 3,
-				price: 5913,
-				current: false
-			},{
-				count: 10,
-				price: 19710,
-				current: false
-			},{
-				count: 20,
-				price: 39420,
-				current: false
-			},{
-				count: 30,
-				price: 59130,
-				current: false
-			},{
-				count: 50,
-				price: 98550,
-				current: false
-			}]
+			delta: 65700,
+			sum: 65700,
+			items:[
+				{count: 1, current: true},
+				{count: 2, current: false},
+				{count: 3, current: false},
+				{count: 4, current: false},
+				{count: 5, current: false},
+				{count: 6, current: false}
+			]
 		},{
-			title:'Субаренда аппартаментов',
+			title:'Субаренда апартаментов',
 			min: 1,
-			max: 50,
+			max: 6,
 			current: 1,
 			step: 1,
-			delta: 30350,
-			sum: 0,
-			items:[{
-				count: 1,
-				price: 1700,
-				current: true
-			},{
-				count: 3,
-				price: 114000,
-				current: false
-			},{
-				count: 10,
-				price: 380000,
-				current: false
-			},{
-				count: 20,
-				price: 760000,
-				current: false
-			},{
-				count: 30,
-				price: 1140000,
-				current: false
-			},{
-				count: 50,
-				price: 1900000,
-				current: false
-			}]
+			delta: 51000,
+			sum: 51000,
+			items:[
+				{count: 1, current: true},
+				{count: 2, current: false},
+				{count: 3, current: false},
+				{count: 4, current: false},
+				{count: 5, current: false},
+				{count: 6, current: false}
+			]
 		},{
 			title:'Субаренда квартир долгосрочно',
 			min: 1,
-			max: 50,
+			max: 6,
 			current: 1,
 			step: 1,
-			delta: 30350,
-			sum: 0,
-			items:[{
-				count: 1,
-				price: 40000,
-				current: true
-			},{
-				count: 3,
-				price: 114000,
-				current: false
-			},{
-				count: 10,
-				price: 380000,
-				current: false
-			},{
-				count: 20,
-				price: 760000,
-				current: false
-			},{
-				count: 30,
-				price: 1140000,
-				current: false
-			},{
-				count: 50,
-				price: 1900000,
-				current: false
-			}]
+			delta: 40000,
+			sum: 40000,
+			items:[
+				{count: 1, current: true},
+				{count: 2, current: false},
+				{count: 3, current: false},
+				{count: 4, current: false},
+				{count: 5, current: false},
+				{count: 6, current: false}
+			]
 		}]
 	},
 	methods: {
@@ -148,8 +97,34 @@ var app = new Vue({
 			
 			item.current = true;
 		},
-		set_calc_current(item, current){
-			item.current = current;
+		range_change(calc){
+			
+			calc.sum = calc.current * calc.delta;
+			let itemcount = calc.current;
+			calc.items.forEach(element => {
+				console.log(element);
+				if (element.count == calc.current) {
+					element.current = true;
+				}else{
+					element.current = false;
+				}
+			});
+
+		},
+
+
+
+		set_calc_current(calc, current){
+			calc.current = current;
+			calc.sum = calc.current * calc.delta;
+			calc.items.forEach(element => {
+				console.log(element);
+				if (element.count == calc.current) {
+					element.current = true;
+				}else{
+					element.current = false;
+				}
+			});
 		},
 		step_changer(item){
 			let curr;
@@ -179,14 +154,14 @@ var app = new Vue({
 });
 
 
-let slider = tns({
-	container: '.my-slider',
-	items: 3,
-	slideBy: 'page',
-	controls: true,
-	controlsPosition: 'bottom',
-	nav: false,
-	mouseDrag: true
-});
+// let slider = tns({
+// 	container: '.my-slider',
+// 	items: 3,
+// 	slideBy: 'page',
+// 	controls: true,
+// 	controlsPosition: 'bottom',
+// 	nav: false,
+// 	mouseDrag: true
+// });
 
 
